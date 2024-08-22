@@ -32,7 +32,7 @@ class Nophica : JavaPlugin(), Listener {
     fun onPlayerInteract(event: PlayerInteractEvent) {
         // only player has permission
         val player = event.player
-        if (!player.hasPermission("farms.harvest")) return
+        if (!player.hasPermission("nophica.harvest")) return
 
         // only hoe is in main hand
         val item = player.inventory.itemInMainHand
@@ -48,7 +48,7 @@ class Nophica : JavaPlugin(), Listener {
             Material.BEETROOTS -> harvestAgeable(player, block, Material.BEETROOT_SEEDS, Material.BEETROOT)
             Material.POTATOES -> harvestAgeable(player, block, Material.POTATO, null)
             Material.CARROTS -> harvestAgeable(player, block, Material.CARROT, null)
-            else -> TODO()
+            else -> return
         }
     }
 
